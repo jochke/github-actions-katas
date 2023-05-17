@@ -1,4 +1,3 @@
-name: hello-world
 on: push
 jobs:
   Build:
@@ -7,4 +6,8 @@ jobs:
     steps:
       - name: Clone-down
         uses: actions/checkout@v3       
-      - run: chmod +x ci/build-app.sh && ci/build-app.sh
+      - name: Build application
+        run: chmod +x ci/build-app.sh && ci/build-app.sh
+      - name: Test
+        run: chmod +x ci/unit-test-app.sh && ci/unit-test-app.sh
+
